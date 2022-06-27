@@ -2,13 +2,13 @@ import {
   faCircleCheck,
   faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   GrupoInput,
   IconoVal,
   Input,
   Label,
   LeyendaError,
+  
 } from "../elements/forms";
 
 const ComponenteInput = ({
@@ -20,6 +20,7 @@ const ComponenteInput = ({
   name,
   leyendaError,
   expresionRegular,
+  funcion,
 }) => {
   const onChange = (e) => {
     cambiarEstado({ ...estado, campo: e.target.value });
@@ -33,6 +34,10 @@ const ComponenteInput = ({
             cambiarEstado({...estado, valido: 'false'})
         }
     }
+    if(funcion){
+      funcion();
+    }
+    
   };
 
   return (
